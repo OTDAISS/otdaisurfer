@@ -3,178 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Delta | Own the Ocean of AI</title>
+    <title>The Digital Delta | Own the AI Ocean</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .surf-gradient { background: linear-gradient(135deg, #0077be 0%, #00a8cc 50%, #00d2ff 100%); }
-        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .hero-wave { background-image: url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=2070'); background-size: cover; background-position: center; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+        body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; background-color: #020617; }
+        .ocean-gradient { background: linear-gradient(135deg, #075985 0%, #0c4a6e 50%, #020617 100%); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .surf-card:hover { transform: translateY(-10px); transition: all 0.3s ease; border-color: #22d3ee; box-shadow: 0 0 30px rgba(34, 211, 238, 0.2); }
+        .text-glow { text-shadow: 0 0 15px rgba(34, 211, 238, 0.6); }
     </style>
 </head>
-<body class="bg-slate-900 text-white overflow-x-hidden">irm https://claude.ai/install.ps1 | iex
+<body class="text-slate-200">
 
-    <!-- NAV BAR -->
+    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center">
-        <div class="text-2xl font-black tracking-tighter uppercase">Neural<span class="text-cyan-400">Nexus</span></div>
-        <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
+        <div class="text-2xl font-black tracking-tighter uppercase italic">Neural<span class="text-cyan-400">Nexus</span></div>
+        <div class="hidden lg:flex space-x-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#marketplace" class="hover:text-cyan-400 transition">Marketplace</a>
+            <a href="#crm" class="hover:text-cyan-400 transition">Pro-Model</a>
             <a href="#tiers" class="hover:text-cyan-400 transition">The Quiver</a>
-            <a href="#crm" class="hover:text-cyan-400 transition">The Pro-Model</a>
-            <a href="#delta" class="hover:text-cyan-400 transition">Digital Delta</a>
+            <a href="#district" class="hover:text-cyan-400 transition">Innovation District</a>
         </div>
-        <a href="#trial" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 px-6 py-2 rounded-full font-bold transition">Activate AI</a>
+        <button class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 px-6 py-2 rounded-full font-black uppercase text-sm transition shadow-lg shadow-cyan-500/20">Catch the Swell</button>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative h-screen flex items-center justify-center text-center px-4 hero-wave">
-        <div class="absolute inset-0 bg-slate-900/60"></div>
-        <div class="relative z-10 max-w-4xl">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-none">DON’T JUST WATCH THE TIDE. <span class="text-cyan-400 italic font-light">OWN THE OCEAN.</span></h1>
-            <p class="text-xl md:text-2xl mb-10 text-slate-200">Experience the Digital Delta. From automated workflows at <span class="font-bold text-white">GPTspeed</span> to sovereign cloud mastery.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#tiers" class="bg-white text-slate-900 px-10 py-4 rounded-full font-black text-lg hover:scale-105 transition">CATCH THE SWELL</a>
-                <a href="#crm" class="border-2 border-white px-10 py-4 rounded-full font-black text-lg hover:bg-white hover:text-slate-900 transition">VIEW THE PRO-MODEL</a>
+    <header class="relative min-h-screen flex items-center justify-center text-center px-4 overflow-hidden ocean-gradient">
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-[100px]"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full filter blur-[100px]"></div>
+        </div>
+        <div class="relative z-10 max-w-5xl">
+            <span class="inline-block px-4 py-1 border border-cyan-500/50 rounded-full text-cyan-400 text-xs font-bold uppercase tracking-widest mb-6">Built for the Digital Delta [1]</span>
+            <h1 class="text-7xl md:text-9xl font-black mb-8 leading-none tracking-tighter uppercase">Don't Just Watch. <br><span class="text-cyan-400 italic font-light">Own the Ocean.</span></h1>
+            <p class="text-xl md:text-2xl mb-12 text-slate-400 max-w-3xl mx-auto">Experience the $9.4 Billion Digital Delta [2, 3]. From automated workflows at <span class="text-white font-bold tracking-widest">GPTSPEED</span> to sovereign cloud mastery [4, 5].</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#tiers" class="bg-white text-slate-900 px-12 py-5 rounded-full font-black text-xl hover:scale-105 transition shadow-2xl">THE BIG WAVE QUIVER</a>
+                <a href="#marketplace" class="glass px-12 py-5 rounded-full font-black text-xl hover:bg-white/10 transition border border-white/20">ENTER MARKETPLACE</a>
             </div>
         </div>
     </header>
 
-    <!-- THE QUIVER: NEURAL NEXUS TIERS -->
-    <section id="tiers" class="py-24 px-8 bg-slate-800">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">The Quiver: Neural Nexus Tiers</h2>
-            <p class="text-slate-400 mb-12">Every surfer needs the right board. Choose your entry point [1, 2].</p>
-            
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Navigator -->
-                <div class="p-8 rounded-3xl glass border-t-4 border-cyan-500">
-                    <h3 class="text-xl font-bold mb-2">Navigator</h3>
-                    <div class="text-3xl font-black mb-6">$499<span class="text-sm font-normal text-slate-400">/mo</span></div>
-                    <ul class="space-y-3 text-sm text-slate-300">
-                        <li>🌊 50,000 AI Workflow Runs</li>
-                        <li>🌊 5 Team Seats</li>
-                        <li>🌊 Full API Access</li>
-                    </ul>
-                </div>
-                <!-- Lighthouse -->
-                <div class="p-8 rounded-3xl glass border-t-4 border-blue-500 scale-105 z-10 bg-slate-700">
-                    <h3 class="text-xl font-bold mb-2 text-cyan-400">Lighthouse</h3>
-                    <div class="text-3xl font-black mb-6">$1,299<span class="text-sm font-normal text-slate-400">/mo</span></div>
-                    <ul class="space-y-3 text-sm text-slate-300">
-                        <li>🔥 250,000 AI Workflow Runs</li>
-                        <li>🔥 20 Team Seats</li>
-                        <li>🔥 <b>Priority Processing</b></li>
-                    </ul>
-                </div>
-                <!-- Scale -->
-                <div class="p-8 rounded-3xl glass border-t-4 border-indigo-500">
-                    <h3 class="text-xl font-bold mb-2">Neural Nexus</h3>
-                    <div class="text-3xl font-black mb-6">$3,499<span class="text-sm font-normal text-slate-400">/mo</span></div>
-                    <ul class="space-y-3 text-sm text-slate-300">
-                        <li>🏢 1,000,000 AI Workflow Runs</li>
-                        <li>🏢 Unlimited Team Seats</li>
-                        <li>🏢 Dedicated Infrastructure</li>
-                    </ul>
-                </div>
-                <!-- Sovereign -->
-                <div class="p-8 rounded-3xl glass border-t-4 border-purple-500">
-                    <h3 class="text-xl font-bold mb-2">Island Sovereign</h3>
-                    <div class="text-3xl font-black mb-6">$7,999<span class="text-sm font-normal text-slate-400">/mo</span></div>
-                    <ul class="space-y-3 text-sm text-slate-300">
-                        <li>👑 <b>Unlimited Workflow Runs</b></li>
-                        <li>👑 On-Premise Deployment</li>
-                        <li>👑 Dedicated Success Manager</li>
-                    </ul>
+    <!-- TIER 1: THE BEACHCOMBER (MARKETPLACE) -->
+    <section id="marketplace" class="py-32 px-8 bg-slate-950">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Tier 1: The Beachcomber</h2>
+            <p class="text-cyan-400 font-bold uppercase tracking-widest italic">AI Model Hub & Asset Marketplace [6]</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="glass p-10 rounded-[2rem] surf-card">
+                <i class="fa-solid fa-cloud-arrow-up text-4xl text-cyan-400 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Upload & Sell</h3>
+                <p class="text-slate-400 mb-6">Share your custom machine learning models with a global community and earn via Stripe or Crypto payments [6, 7].</p>
+            </div>
+            <div class="glass p-10 rounded-[2rem] surf-card border-cyan-500/30 bg-cyan-500/5">
+                <i class="fa-solid fa-link text-4xl text-cyan-400 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Blockchain Transfer</h3>
+                <p class="text-slate-400 mb-6">Securely transfer model ownership and data rights via permanent blockchain ledgers [6, 7].</p>
+            </div>
+            <div class="glass p-10 rounded-[2rem] surf-card">
+                <i class="fa-solid fa-coins text-4xl text-cyan-400 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Token Packs</h3>
+                <p class="text-slate-400 mb-6">Flexible pay-as-you-go AI feature packs in 1K, 5K, 10K, or 50K increments [8].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIER 2: THE RIP CURL PRO (CRM) -->
+    <section id="crm" class="py-32 px-8 bg-slate-900">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+            <div class="lg:w-1/2">
+                <h2 class="text-6xl font-black mb-8 leading-tight tracking-tighter uppercase">Tier 2: The <span class="text-cyan-400">Rip Curl Pro</span></h2>
+                <div class="text-3xl font-bold mb-6 text-white">$149<span class="text-sm font-normal text-slate-400 uppercase tracking-widest ml-2">/ month [9]</span></div>
+                <p class="text-xl text-slate-400 mb-10 leading-relaxed">The all-in-one professional board. Save <span class="text-white font-bold">$23,652 annually</span> compared to HubSpot or Salesforce [9]. Includes all 12+ Industry-Specific Fins [9, 10].</p>
+                <ul class="grid grid-cols-2 gap-4 text-sm font-bold uppercase tracking-tighter text-cyan-400">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> Non-Profit Fin [11]</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> E-Commerce Shredder [12]</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> Franchise Flow [13]</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> MedTech Guard [14, 15]</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> AI Sales Coach [16]</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> Voice Control Orb [17]</li>
+                </ul>
+            </div>
+            <div class="lg:w-1/2 glass p-12 rounded-[3rem] relative">
+                <div class="absolute -top-6 -left-6 bg-cyan-500 text-slate-900 font-black px-6 py-2 rounded-full uppercase text-xs tracking-widest shadow-xl">The Pro-Model [10]</div>
+                <div class="space-y-8">
+                    <div class="border-b border-white/10 pb-6">
+                        <h4 class="text-white font-bold mb-2">Interactive Floor Plans [12]</h4>
+                        <p class="text-sm text-slate-400">Drag-and-drop seating for gala events and fundraisers.</p>
+                    </div>
+                    <div class="border-b border-white/10 pb-6">
+                        <h4 class="text-white font-bold mb-2">BYOK Calling [18]</h4>
+                        <p class="text-sm text-slate-400">Zero markup—pay at-cost rates of $0.013/min directly to Twilio.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-2">Abandoned Cart Recovery [19]</h4>
+                        <p class="text-sm text-slate-400">Automated AI campaigns to recover lost e-commerce sales.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- THE PRO-MODEL: CRM -->
-    <section id="crm" class="py-24 px-8 bg-slate-900">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-            <div class="md:w-1/2">
-                <span class="text-cyan-400 font-bold tracking-widest uppercase">The Smart Alternative</span>
-                <h2 class="text-5xl font-black mt-4 mb-6">INFINITE VISIONS AI: THE PRO-MODEL BOARD</h2>
-                <p class="text-slate-300 text-lg mb-8 leading-relaxed">Stop paying $2,220/mo for bloated CRMs. Get the Professional Plan for just <b>$149/mo</b> and put <b>$23,652/year</b> back in your pocket [3, 4].</p>
-                
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 glass rounded-xl">
-                        <h4 class="font-bold">AI Sales Coach</h4>
-                        <p class="text-xs text-slate-400">Win probability & deal risk analysis [5].</p>
-                    </div>
-                    <div class="p-4 glass rounded-xl">
-                        <h4 class="font-bold">Voice Control Orb</h4>
-                        <p class="text-xs text-slate-400">Hands-free CRM management [6].</p>
-                    </div>
-                    <div class="p-4 glass rounded-xl">
-                        <h4 class="font-bold">80% Faster</h4>
-                        <p class="text-xs text-slate-400">Advanced API caching optimization [6].</p>
-                    </div>
-                    <div class="p-4 glass rounded-xl">
-                        <h4 class="font-bold">BYOK Calling</h4>
-                        <p class="text-xs text-slate-400">Zero markup—$0.013/min calls [7].</p>
-                    </div>
-                </div>
+    <!-- TIERS 3-7: THE QUIVER -->
+    <section id="tiers" class="py-32 px-8 bg-slate-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center mb-20">
+            <h2 class="text-5xl font-black mb-4 tracking-tighter uppercase">The Big Wave Quiver</h2>
+            <p class="text-slate-400">Neural Nexus Automation Tiers [20, 21]</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Tier 3 -->
+            <div class="glass p-10 rounded-[2rem] border-t-4 border-cyan-500 surf-card">
+                <span class="text-xs font-bold uppercase text-cyan-400 tracking-widest">Tier 3 [20]</span>
+                <h3 class="text-2xl font-black mt-2 mb-4">The Navigator</h3>
+                <div class="text-3xl font-black mb-6">$499<span class="text-sm font-normal text-slate-500">/mo</span></div>
+                <ul class="text-sm space-y-4 text-slate-400">
+                    <li>🏄 50,000 AI Workflow Runs</li>
+                    <li>🏄 5 Team Seats</li>
+                    <li>🏄 Full API Access</li>
+                </ul>
             </div>
-            <div class="md:w-1/2 grid grid-cols-3 gap-2">
-                <!-- Industry Icons Grid -->
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Real Estate</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Restaurants</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Legal</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Contractors</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">E-Commerce</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Non-Profits</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Retail</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Fitness</div>
-                <div class="bg-cyan-500/10 p-4 text-center rounded-lg border border-cyan-500/20 text-xs">Creators</div>
+            <!-- Tier 5 -->
+            <div class="glass p-10 rounded-[2rem] border-t-4 border-blue-500 surf-card bg-blue-500/5">
+                <span class="text-xs font-bold uppercase text-blue-400 tracking-widest">Tier 5 [20]</span>
+                <h3 class="text-2xl font-black mt-2 mb-4">The Lighthouse</h3>
+                <div class="text-3xl font-black mb-6">$1,299<span class="text-sm font-normal text-slate-500">/mo</span></div>
+                <ul class="text-sm space-y-4 text-slate-400">
+                    <li>🚀 250,000 AI Workflow Runs</li>
+                    <li>🚀 20 Team Seats</li>
+                    <li>🚀 <b>Priority Line Processing</b></li>
+                </ul>
+            </div>
+            <!-- Tier 6 -->
+            <div class="glass p-10 rounded-[2rem] border-t-4 border-indigo-500 surf-card">
+                <span class="text-xs font-bold uppercase text-indigo-400 tracking-widest">Tier 6 [20]</span>
+                <h3 class="text-2xl font-black mt-2 mb-4">The Gun</h3>
+                <div class="text-3xl font-black mb-6">$3,499<span class="text-sm font-normal text-slate-500">/mo</span></div>
+                <ul class="text-sm space-y-4 text-slate-400">
+                    <li>🏢 1,000,000 AI Workflow Runs</li>
+                    <li>🏢 <b>Unlimited Seats</b></li>
+                    <li>🏢 Dedicated Infrastructure</li>
+                </ul>
+            </div>
+            <!-- Tier 7 -->
+            <div class="glass p-10 rounded-[2rem] border-t-4 border-purple-500 surf-card">
+                <span class="text-xs font-bold uppercase text-purple-400 tracking-widest">Tier 7 [22]</span>
+                <h3 class="text-2xl font-black mt-2 mb-4">Local Legend</h3>
+                <div class="text-3xl font-black mb-6">$7,999<span class="text-sm font-normal text-slate-500">/mo</span></div>
+                <ul class="text-sm space-y-4 text-slate-400">
+                    <li>👑 <b>Unlimited AI Runs</b></li>
+                    <li>👑 On-Premise Deployment</li>
+                    <li>👑 Dedicated Success Manager</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- THE DIGITAL DELTA: STARTUPS -->
-    <section id="delta" class="py-24 px-8 surf-gradient">
-        <div class="max-w-7xl mx-auto text-slate-900">
-            <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Riding the Digital Delta</h2>
-            <p class="font-bold mb-12 opacity-80">Memphis is the recognized hub for applied AI. Here is the pro team [8, 9].</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/40 p-8 rounded-3xl border border-white/50">
-                    <h3 class="text-2xl font-black mb-4">MEDHAUL</h3>
-                    <p class="text-sm leading-relaxed">Solving a $150B healthcare logistics crisis with AI-matched patient transport [10].</p>
+    <!-- TIER 9: THE ISLAND KING (INNOVATION DISTRICT) -->
+    <section id="district" class="py-32 px-8 ocean-gradient">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="glass p-1 rounded-[3rem]">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070" alt="Innovation District" class="rounded-[2.8rem] opacity-60">
                 </div>
-                <div class="bg-white/40 p-8 rounded-3xl border border-white/50">
-                    <h3 class="text-2xl font-black mb-4">OPTURA AI</h3>
-                    <p class="text-sm leading-relaxed">Automating the global supply chain with predictive analytics in the logistics hub [11].</p>
+                <div class="absolute bottom-8 left-8 glass p-8 rounded-2xl max-w-xs">
+                    <h4 class="text-white font-black text-xl mb-2 italic tracking-tighter">$9.4 Billion [3]</h4>
+                    <p class="text-xs text-slate-300 uppercase font-bold tracking-widest">Memphis Innovation District Infrastructure [5]</p>
                 </div>
-                <div class="bg-white/40 p-8 rounded-3xl border border-white/50">
-                    <h3 class="text-2xl font-black mb-4">BITE NINJA</h3>
-                    <p class="text-sm leading-relaxed">Remote drive-thru "Ninjas" using AI sentiment analysis to coach real-time upsells [12, 13].</p>
+            </div>
+            <div>
+                <span class="text-cyan-400 font-bold uppercase tracking-widest">Tier 9: The Island King [5]</span>
+                <h2 class="text-6xl font-black my-6 leading-none uppercase tracking-tighter">Sovereign Cloud & Community [2]</h2>
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed">Relocate your cloud spending to Memphis. <b>25% of all district tax revenue</b> is reinvested into local schools, roads, and parks within a five-mile radius [23].</p>
+                <div class="grid grid-cols-2 gap-8 text-sm uppercase font-bold tracking-tighter">
+                    <div class="border-l-2 border-cyan-500 pl-4">
+                        <div class="text-white mb-1">Compute & Community [5]</div>
+                        <div class="text-slate-500">Mixed-use AI innovation</div>
+                    </div>
+                    <div class="border-l-2 border-cyan-500 pl-4">
+                        <div class="text-white mb-1">R1 Research Links [24]</div>
+                        <div class="text-slate-500">University partnership ready</div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH SPECS (GROM GEAR) -->
+    <section class="py-24 px-8 bg-slate-900 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div>
+                <div class="text-5xl font-black text-white mb-2">80%</div>
+                <p class="text-xs uppercase font-bold tracking-widest text-cyan-400">Faster Dashboard [17]</p>
+            </div>
+            <div>
+                <div class="text-5xl font-black text-white mb-2">&lt; 1hr</div>
+                <p class="text-xs uppercase font-bold tracking-widest text-cyan-400">Setup Time [25]</p>
+            </div>
+            <div>
+                <div class="text-5xl font-black text-white mb-2">∞</div>
+                <p class="text-xs uppercase font-bold tracking-widest text-cyan-400">Infinite Scroll [8]</p>
+            </div>
+            <div>
+                <div class="text-5xl font-black text-white mb-2">SOC2</div>
+                <p class="text-xs uppercase font-bold tracking-widest text-cyan-400">Compliance Ready [26]</p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER CTA -->
-    <section id="trial" class="py-32 px-4 text-center">
-        <h2 class="text-5xl md:text-7xl font-black mb-8">START YOUR FREE RIDE</h2>
-        <p class="text-xl text-slate-400 mb-12">14-Day Free Trial. No Credit Card. Under 1 Hour Setup [4, 14, 15].</p>
-        <button class="bg-cyan-500 text-slate-900 px-16 py-6 rounded-full font-black text-2xl hover:bg-cyan-400 shadow-[0_0_50px_rgba(6,182,212,0.5)] transition">ACTIVATE AI NOW</button>
-        <div class="mt-16 text-slate-500 text-sm">
-            © 2026 Neural Nexus Technologies. All Rights Reserved. Built for the Digital Delta [16].
+    <footer class="py-32 px-8 bg-slate-950 text-center relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-cyan-500"></div>
+        <h2 class="text-7xl font-black mb-8 uppercase italic tracking-tighter">Ready to hit the water?</h2>
+        <p class="text-xl text-slate-400 mb-12">14-Day FREE Trial [27]. No Credit Card Required [28]. Cancel Anytime.</p>
+        <button class="bg-cyan-500 text-slate-900 px-20 py-8 rounded-full font-black text-2xl uppercase tracking-tighter hover:bg-cyan-400 transition shadow-[0_0_50px_rgba(34,211,238,0.4)] mb-16">ACTIVATE AI NOW [29]</button>
+        <div class="max-w-7xl mx-auto pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs font-bold uppercase tracking-widest text-slate-600 gap-8">
+            <div class="italic">© 2026 Neural Nexus Technologies. All Rights Reserved [30].</div>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-cyan-400">Privacy Policy [29]</a>
+                <a href="#" class="hover:text-cyan-400">Terms of Service [29]</a>
+            </div>
         </div>
-    </section>
+    </footer>
 
 </body>
 </html>
-Core Site Features Included:
-The Quiver (Nexus Tiers): All four tiers (Navigator to Island Sovereign) with exact pricing and limits (499–7,999)
-.
-The Pro-Model (CRM): The $149 Professional Plan, highlight of $23,652/year savings, and the 12+ industry modules
-.
-Digital Delta Hub: Focuses on Memphis startups like MedHaul, Optura AI, and Bite Ninja
-.
-The "Small Details": Integrated the 80% speed optimization, BYOK calling ($0.013/min), and 14-day free trial
-.
-Surfing Aesthetic: Used Tailwind classes for glassmorphism, wave background imagery, and a high-performance "surf-gradient" section.
-Today • 11:01 AM
