@@ -41,7 +41,6 @@
 
         .village-card {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
         }
 
         .village-card:hover { 
@@ -49,7 +48,6 @@
             box-shadow: 0 0 50px rgba(255, 0, 127, 0.2);
         }
 
-        /* Modal Logic */
         #activation-modal {
             display: none;
             position: fixed;
@@ -58,7 +56,7 @@
             align-items: center;
             justify-content: center;
             background: rgba(2, 6, 23, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
         #activation-modal.active { display: flex; }
@@ -97,74 +95,85 @@
 
             <div id="email-ui" class="hidden">
                 <h3 class="text-3xl font-black uppercase italic mb-2 text-pink-500">Node Identified</h3>
-                <p class="text-slate-400 mb-8 text-sm italic">Provide your digital signature (email) to finalize access.</p>
+                <p class="text-slate-400 mb-8 text-sm italic">Provide your digital signature to finalize access.</p>
                 <form id="intake-form" class="space-y-4">
-                    <input type="email" required placeholder="name@sovereign.com" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-cyan-400 transition text-center font-bold">
+                    <input type="email" id="user-email" required placeholder="name@sovereign.com" class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-cyan-400 transition text-center font-bold">
                     <button type="submit" class="w-full neon-sunset py-5 rounded-2xl font-black uppercase text-slate-950 hover:scale-105 transition">Finalize Connection</button>
                 </form>
             </div>
 
-            <button onclick="closeModal()" class="mt-8 text-xs font-black uppercase tracking-widest text-white/30 hover:text-white transition">Abort Mission</button>
+            <div id="success-ui" class="hidden">
+                <i class="fa-solid fa-circle-check text-6xl text-teal-400 mb-6"></i>
+                <h3 class="text-4xl font-black uppercase italic mb-2">Access Granted</h3>
+                <p class="text-slate-300 mb-8 italic">Node connection persistent. Check your transmission (inbox) for the decryption key.</p>
+                <button onclick="closeModal()" class="w-full bg-white/10 py-4 rounded-xl font-black uppercase hover:bg-white/20 transition">Return to Island</button>
+            </div>
+
+            <button id="abort-btn" onclick="closeModal()" class="mt-8 text-xs font-black uppercase tracking-widest text-white/30 hover:text-white transition">Abort Mission</button>
         </div>
     </div>
 
     <nav class="fixed left-0 top-0 h-screen w-80 glass border-r border-white/10 z-50 p-10 flex flex-col justify-between">
-        <div class="text-4xl font-black uppercase italic tracking-tighter text-glow">Hatteras<br><span class="text-pink-500">Nexus</span></div>
-        <button onclick="triggerActivation('Global Access', 'All Island Nodes')" class="neon-sunset py-5 rounded-2xl font-black uppercase text-xs text-slate-950 shadow-2xl hover:scale-105 transition">Activate AI Now</button>
+        <div class="text-4xl font-black uppercase italic tracking-tighter">Hatteras<br><span class="text-pink-500">Nexus</span></div>
+        <button onclick="triggerActivation('Global Access')" class="neon-sunset py-5 rounded-2xl font-black uppercase text-xs text-slate-950 shadow-2xl hover:scale-105 transition">Activate AI Now</button>
     </nav>
 
     <main class="ml-80 w-full">
-        <header id="hero" class="min-h-screen neon-sunset flex items-center justify-center relative p-20">
+        <header class="min-h-screen neon-sunset flex items-center justify-center relative p-20">
             <div class="absolute inset-0 bg-slate-950/40"></div>
             <div class="relative z-10 text-center">
                 <h1 class="text-[8rem] font-black uppercase italic leading-none mb-8">Hatteras<br><span class="text-cyan-400">Sovereign</span></h1>
                 <p class="text-2xl italic mb-12">Building the Digital Delta at GPTSpeed.</p>
-                <a href="#tri-villages" class="bg-white text-slate-950 px-12 py-6 rounded-2xl font-black text-2xl uppercase italic">Start at the Bridge</a>
+                <a href="#nodes" class="bg-white text-slate-950 px-12 py-6 rounded-2xl font-black text-2xl uppercase italic">Explore Nodes</a>
             </div>
         </header>
 
-        <section id="tri-villages" class="py-40 px-20 bg-slate-950">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <section id="nodes" class="py-40 px-20 bg-slate-950">
+            <div class="grid md:grid-cols-3 gap-10">
                 <div class="glass p-10 rounded-[3rem] village-card border-t-4 border-pink-500">
                     <h3 class="text-2xl font-black mb-2 italic">Tri-Village Hub</h3>
-                    <div class="text-4xl font-black mb-8 text-pink-500">$499<span class="text-sm font-normal">/mo</span></div>
-                    <button onclick="triggerActivation('Tri-Village Hub', '$499 Tier')" class="w-full py-4 bg-white/5 rounded-xl font-black uppercase hover:bg-white/10 transition">Buy Node</button>
+                    <div class="text-4xl font-black mb-8 text-pink-500">$499</div>
+                    <button onclick="triggerActivation('Tri-Village Hub')" class="w-full py-4 bg-white/5 rounded-xl font-black uppercase hover:bg-white/10 transition">Buy Node</button>
                 </div>
                 <div class="glass p-10 rounded-[3rem] village-card border-t-4 border-orange-500">
                     <h3 class="text-2xl font-black mb-2 italic">Kinnakeet</h3>
-                    <div class="text-4xl font-black mb-8 text-orange-500">$1,299<span class="text-sm font-normal">/mo</span></div>
-                    <button onclick="triggerActivation('Kinnakeet Station', '$1,299 Tier')" class="w-full py-4 bg-white/5 rounded-xl font-black uppercase hover:bg-white/10 transition">Deploy Node</button>
+                    <div class="text-4xl font-black mb-8 text-orange-500">$1,299</div>
+                    <button onclick="triggerActivation('Kinnakeet Station')" class="w-full py-4 bg-white/5 rounded-xl font-black uppercase hover:bg-white/10 transition">Buy Node</button>
                 </div>
                 <div class="glass p-10 rounded-[3rem] village-card border-t-4 border-teal-400">
                     <h3 class="text-2xl font-black mb-2 italic">Sovereign</h3>
-                    <div class="text-4xl font-black mb-8 text-teal-400">$7,999<span class="text-sm font-normal">/mo</span></div>
-                    <button onclick="triggerActivation('Hatteras Sovereign', '$7,999 Tier')" class="w-full py-4 bg-white/5 rounded-xl font-black uppercase hover:bg-white/10 transition">Claim Node</button>
+                    <div class="text-4xl font-black mb-8 text-teal-400">$7,999</div>
+                    <button onclick="triggerActivation('Hatteras Sovereign')" class="w-full py-4 bg-white/5 rounded-xl font-black uppercase hover:bg-white/10 transition">Buy Node</button>
                 </div>
             </div>
         </section>
     </main>
 
     <script>
-        function triggerActivation(tier, price) {
-            const modal = document.getElementById('activation-modal');
-            const syncUI = document.getElementById('sync-ui');
-            const emailUI = document.getElementById('email-ui');
-            const progress = document.getElementById('modal-progress');
-            const scanner = document.getElementById('modal-scanner');
+        const modal = document.getElementById('activation-modal');
+        const syncUI = document.getElementById('sync-ui');
+        const emailUI = document.getElementById('email-ui');
+        const successUI = document.getElementById('success-ui');
+        const progress = document.getElementById('modal-progress');
+        const scanner = document.getElementById('modal-scanner');
+        const abortBtn = document.getElementById('abort-btn');
 
-            // Reset UI
+        function triggerActivation(tier) {
+            // Reset to Sync Phase
             modal.classList.add('active');
             syncUI.classList.remove('hidden');
             emailUI.classList.add('hidden');
+            successUI.classList.add('hidden');
             scanner.classList.remove('hidden');
+            abortBtn.classList.remove('hidden');
             progress.style.width = '0%';
             
             document.getElementById('modal-title').innerText = `Syncing ${tier}`;
 
-            // Animate progress
+            // Animate progress bar
             setTimeout(() => { progress.style.width = '100%'; }, 100);
 
-            // Switch to Email Intake after "syncing"
+            // Transition to Email Phase
             setTimeout(() => {
                 syncUI.classList.add('hidden');
                 scanner.classList.add('hidden');
@@ -172,16 +181,17 @@
             }, 1600);
         }
 
-        function closeModal() {
-            document.getElementById('activation-modal').classList.remove('active');
-        }
-
         document.getElementById('intake-form').onsubmit = (e) => {
             e.preventDefault();
-            const email = e.target.querySelector('input').value;
-            alert(`Sovereign access granted to: ${email}\nWelcome to the Nexus.`);
-            closeModal();
+            // Transition to Success Phase
+            emailUI.classList.add('hidden');
+            successUI.classList.remove('hidden');
+            abortBtn.classList.add('hidden'); // No abording once success happens
         };
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
     </script>
 </body>
 </html>
