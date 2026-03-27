@@ -1,18 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-// Placeholder components to keep the app from crashing
-const Placeholder = ({ name }) => (
-  <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-6">
-    <div className="text-center max-w-md">
-      <h1 className="text-4xl font-black uppercase italic mb-4 text-emerald-500">{name}</h1>
-      <p className="text-slate-500 mb-8 font-medium">System is initializing this module. Hub connection is active.</p>
-      <Link to="/" className="bg-slate-900 border border-slate-800 px-6 py-3 rounded-xl text-emerald-400 font-black uppercase tracking-widest text-[10px] no-underline hover:bg-emerald-500 hover:text-slate-950 transition-all">
-        ← Back to Hub
-      </Link>
-    </div>
-  </div>
-);
+import MemberPass from './MemberPass';
+import Automations from './Automations';
+import Workflows from './Workflows';
+import WebBuilds from './WebBuilds';
+import GameBuilds from './GameBuilds';
+import LeadSniper from './LeadSniper';
 
 function Home() {
   return (
@@ -50,12 +43,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/automations" element={<Placeholder name="AI Automations" />} />
-        <Route path="/workflows" element={<Placeholder name="Workflows" />} />
-        <Route path="/web-builds" element={<Placeholder name="Web Builds" />} />
-        <Route path="/game-builds" element={<Placeholder name="Game Builds" />} />
-        <Route path="/vault" element={<Placeholder name="Member Vault" />} />
-        <Route path="/sniper" element={<Placeholder name="Lead Sniper" />} />
+        <Route path="/automations" element={<Automations />} />
+        <Route path="/workflows" element={<Workflows />} />
+        <Route path="/web-builds" element={<WebBuilds />} />
+        <Route path="/game-builds" element={<GameBuilds />} />
+        <Route path="/vault" element={<MemberPass />} />
+        <Route path="/sniper" element={<LeadSniper />} />
       </Routes>
     </Router>
   );
