@@ -5,7 +5,7 @@ import Automations from './Automations';
 import Workflows from './Workflows';
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
-import LeadSniper from './LeadSniper';
+import LeadSniper from './Leadsniper'; // Fixed lowercase 's' to match your file
 
 function Home() {
   return (
