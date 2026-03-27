@@ -1,54 +1,62 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import MemberPass from './MemberPass';
-import Automations from './Automations';
-import Workflows from './Workflows';
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
-import LeadSniper from './LeadSniper';
+import Workflows from './Workflows';
+import Automations from './Automations';
+import Vault from './Vault';
 
-function Home() {
-  return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 font-sans text-white text-center">
-      <div className="max-w-6xl w-full bg-slate-900/30 border border-blue-500/10 p-12 rounded-[3rem] backdrop-blur-xl shadow-2xl">
-        <h1 className="text-6xl md:text-9xl font-black italic tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-400 to-cyan-500">
+const Home = () => (
+  <div className="min-h-screen bg-black text-white p-8 font-sans selection:bg-cyan-500/30">
+    <div className="max-w-6xl mx-auto">
+      <header className="mb-20 mt-12">
+        <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-500">
           OTD AI SURFER
         </h1>
-        <p className="text-blue-400/80 font-bold tracking-[0.4em] uppercase mb-16 text-[10px] md:text-xs">Digital Ecosystem Architect</p>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          <Link to="/automations" className="group bg-slate-800/40 hover:bg-blue-600 p-8 rounded-3xl transition-all no-underline text-white border border-blue-500/20 shadow-lg">
-            <h2 className="font-black italic text-xl md:text-2xl uppercase text-center">AI Automations</h2>
+        <p className="text-xl md:text-2xl text-cyan-400 font-light tracking-[0.2em] uppercase italic">
+          Digital Ecosystem Architect
+        </p>
+      </header>
+
+      <nav className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { name: "High-Velocity Web", path: "/web-builds", color: "from-cyan-500/20" },
+          { name: "Immersive Games", path: "/game-builds", color: "from-purple-500/20" },
+          { name: "Strategic Workflows", path: "/workflows", color: "from-emerald-500/20" },
+          { name: "AI Automations", path: "/automations", color: "from-orange-500/20" },
+          { name: "The Vault", path: "/vault", color: "from-red-500/20" }
+        ].map((item) => (
+          <Link 
+            key={item.path}
+            to={item.path} 
+            className={`group relative p-10 bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2`}
+          >
+            <div className={`absolute inset-0 bg-gradient-to-br ${item.color} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <span className="relative z-10 text-2xl font-bold tracking-tight group-hover:text-cyan-400 transition-colors uppercase italic">
+              {item.name}
+            </span>
           </Link>
-          <Link to="/workflows" className="group bg-slate-800/40 hover:bg-cyan-600 p-8 rounded-3xl transition-all no-underline text-white border border-cyan-500/20 shadow-lg">
-            <h2 className="font-black italic text-xl md:text-2xl uppercase text-center">Strategic Workflows</h2>
-          </Link>
-          <Link to="/web-builds" className="group bg-slate-800/40 hover:bg-purple-600 p-8 rounded-3xl transition-all no-underline text-white border border-purple-500/20 shadow-lg">
-            <h2 className="font-black italic text-xl md:text-2xl uppercase text-center">High-Velocity Web</h2>
-          </Link>
-          <Link to="/game-builds" className="group bg-slate-800/40 hover:bg-orange-600 p-8 rounded-3xl transition-all no-underline text-white border border-orange-500/20 shadow-lg">
-            <h2 className="font-black italic text-xl md:text-2xl uppercase text-center">Game & Sim Builds</h2>
-          </Link>
-          <Link to="/vault" className="group bg-slate-800/40 hover:bg-emerald-600 p-8 rounded-3xl transition-all no-underline text-white border border-emerald-500/20 lg:col-span-2 shadow-lg">
-            <h2 className="font-black italic text-xl md:text-2xl uppercase text-center">Member Vault Access</h2>
-          </Link>
-        </div>
-      </div>
+        ))}
+      </nav>
+
+      <footer className="mt-32 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-[0.3em] uppercase text-slate-600 font-bold">
+        <span>© 2026 Ocean Tide Drop</span>
+        <span className="text-cyan-950">Status: Optimized</span>
+      </footer>
     </div>
-  );
-}
+  </div>
+);
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/automations" element={<Automations />} />
-        <Route path="/workflows" element={<Workflows />} />
         <Route path="/web-builds" element={<WebBuilds />} />
         <Route path="/game-builds" element={<GameBuilds />} />
-        <Route path="/vault" element={<MemberPass />} />
-        <Route path="/sniper" element={<LeadSniper />} />
+        <Route path="/workflows" element={<Workflows />} />
+        <Route path="/automations" element={<Automations />} />
+        <Route path="/vault" element={<Vault />} />
       </Routes>
     </Router>
   );
