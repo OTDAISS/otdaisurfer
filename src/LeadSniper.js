@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Target, Download, Terminal, ArrowLeft, Search, CheckCircle } from 'lucide-react';
+import { Target, Download, Terminal, ArrowLeft, Search, CheckCircle, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LeadSniper = () => {
@@ -8,11 +8,11 @@ const LeadSniper = () => {
   const [query, setQuery] = useState('');
 
   const startScan = () => {
-    if (!query) return alert("Please enter a target niche");
+    if (!query) return alert("Please enter a target niche (e.g., 'Real Estate Founders')");
     setIsScanning(true);
     setResults([]);
     
-    // Simulate high-velocity scraping logic
+    // High-velocity simulation of extraction logic
     setTimeout(() => {
       setResults([
         { name: "James Holden", role: "CEO", company: "Rocinante Logistics", email: "j.holden@rocicorp.com" },
@@ -33,9 +33,11 @@ const LeadSniper = () => {
 
         <div className="bg-slate-900/40 border border-emerald-500/20 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
           <div className="relative z-10">
-            <header className="mb-10">
-              <h1 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-2">Lead Sniper <span className="text-emerald-500">V1.0</span></h1>
-              <p className="text-slate-400 font-medium italic">High-Velocity LinkedIn Enrichment Engine</p>
+            <header className="mb-10 text-center md:text-left">
+              <h1 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-2">
+                Lead Sniper <span className="text-emerald-500 text-2xl md:text-3xl not-italic ml-2">V1.0</span>
+              </h1>
+              <p className="text-slate-400 font-medium italic">Proprietary LinkedIn Enrichment Engine</p>
             </header>
 
             <div className="flex flex-col md:flex-row gap-4 mb-12">
@@ -52,7 +54,7 @@ const LeadSniper = () => {
               <button 
                 onClick={startScan}
                 disabled={isScanning}
-                className="bg-emerald-600 hover:bg-emerald-400 px-8 py-5 rounded-2xl font-black italic uppercase tracking-widest transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-xl shadow-emerald-600/20"
+                className="bg-emerald-600 hover:bg-emerald-400 px-8 py-5 rounded-2xl font-black italic uppercase tracking-widest transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-xl shadow-emerald-600/20 active:scale-95"
               >
                 {isScanning ? <Terminal className="animate-spin" /> : <Target size={20} />}
                 {isScanning ? "Engaging..." : "Start Sniper"}
@@ -73,10 +75,10 @@ const LeadSniper = () => {
                   {results.map((lead, i) => (
                     <div key={i} className="bg-slate-950/50 p-5 rounded-2xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 group hover:border-emerald-500/30 transition-colors">
                       <div>
-                        <div className="font-bold text-lg italic tracking-tight">{lead.name}</div>
+                        <div className="font-bold text-lg italic tracking-tight group-hover:text-emerald-400 transition-colors">{lead.name}</div>
                         <div className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{lead.role} // {lead.company}</div>
                       </div>
-                      <div className="text-emerald-400 font-mono text-sm bg-emerald-500/5 px-4 py-2 rounded-lg border border-emerald-500/10">
+                      <div className="text-emerald-400 font-mono text-xs bg-emerald-500/5 px-4 py-2 rounded-lg border border-emerald-500/10">
                         {lead.email}
                       </div>
                     </div>
