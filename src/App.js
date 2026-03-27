@@ -5,6 +5,7 @@ import Automations from './Automations';
 import Workflows from './Workflows';
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
+import LeadSniper from './LeadSniper';
 
 function Home() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/web-builds" element={<WebBuilds />} />
         <Route path="/game-builds" element={<GameBuilds />} />
         <Route path="/vault" element={<MemberPass />} />
+        <Route path="/sniper" element={<LeadSniper />} />
       </Routes>
     </Router>
   );
