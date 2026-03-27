@@ -1,31 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MemberPass from './MemberPass';
+import Automations from './Automations';
 
-function App() {
-  const [showVault, setShowVault] = useState(false);
-
-  if (showVault) {
-    return <MemberPass />;
-  }
-
+function Home() {
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 font-sans text-white">
-      <div className="max-w-2xl w-full bg-slate-900/50 border border-blue-500/20 p-12 rounded-3xl text-center backdrop-blur-md shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+      <div className="max-w-4xl w-full bg-slate-900/50 border border-blue-500/20 p-12 rounded-3xl text-center backdrop-blur-md">
         <h1 className="text-7xl font-black italic tracking-tighter mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
           OTD AI SURFER
         </h1>
-        <p className="text-blue-400/60 font-bold tracking-[0.2em] uppercase mb-12 text-sm">
-          High-Velocity Lead Intelligence
-        </p>
+        <p className="text-blue-400/60 font-bold tracking-[0.2em] uppercase mb-12 text-sm">Digital Ecosystem</p>
         
-        <button 
-          onClick={() => setShowVault(true)}
-          className="group relative inline-flex items-center justify-center px-10 py-4 font-black text-white transition-all duration-200 bg-blue-600 rounded-full hover:bg-blue-500 shadow-[0_0_30px_rgba(37,99,235,0.4)] transform hover:scale-105"
-        >
-          ENTER MEMBER PASS
-        </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto">
+          <Link to="/automations" className="bg-blue-600 hover:bg-blue-500 p-4 rounded-xl font-black transition-all transform hover:scale-105 no-underline text-white">
+            AI AUTOMATIONS
+          </Link>
+          <Link to="/vault" className="bg-slate-800 hover:bg-slate-700 p-4 rounded-xl font-black transition-all transform hover:scale-105 no-underline text-white">
+            MEMBER VAULT
+          </Link>
+        </div>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/automations" element={<Automations />} />
+        <Route path="/vault" element={<MemberPass />} />
+      </Routes>
+    </Router>
   );
 }
 
