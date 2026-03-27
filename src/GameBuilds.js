@@ -1,36 +1,27 @@
 import React from 'react';
-import { Layout, Code, Database } from 'lucide-react';
+import { Terminal, Cpu, Gamepad2 } from 'lucide-react';
 
-const WebBuilds = () => {
+const GameBuilds = () => {
+  const builds = [
+    { name: "Logic Engine", tech: "C++ / Python", desc: "Real-time AI decision trees." },
+    { name: "State Manager", tech: "FastAPI / Redis", desc: "Low-latency multiplayer synchronization." }
+  ];
+
   return (
     <div className="min-h-screen bg-slate-950 text-white p-12">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-black italic uppercase mb-4">Architecture Builds</h1>
-        <p className="text-slate-500 mb-12 font-mono italic">Stack: FastAPI // React // MongoDB // Vite</p>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-slate-900 border border-slate-800 p-8 rounded-[3rem]">
-            <Code className="text-emerald-400 mb-4" />
-            <h3 className="text-xl font-bold italic mb-4">Frontend Core</h3>
-            <ul className="text-slate-400 space-y-2 font-mono text-sm">
-              <li>- Tailwind CSS Styling</li>
-              <li>- Vercel Web Analytics</li>
-              <li>- React-Router Integration</li>
-            </ul>
+      <h1 className="text-4xl font-black italic uppercase mb-12">System Build Portfolio</h1>
+      <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
+        {builds.map((b, i) => (
+          <div key={i} className="bg-slate-900 p-10 rounded-[3rem] border border-slate-800 relative group overflow-hidden">
+            <Gamepad2 className="text-emerald-500 mb-6 group-hover:rotate-12 transition-transform" />
+            <h2 className="text-2xl font-bold italic mb-2">{b.name}</h2>
+            <p className="text-slate-500 font-mono text-xs mb-6 tracking-tighter">{b.tech}</p>
+            <p className="text-slate-400 text-sm leading-relaxed">{b.desc}</p>
           </div>
-          <div className="bg-slate-900 border border-slate-800 p-8 rounded-[3rem]">
-            <Database className="text-emerald-400 mb-4" />
-            <h3 className="text-xl font-bold italic mb-4">Backend Logic</h3>
-            <ul className="text-slate-400 space-y-2 font-mono text-sm">
-              <li>- Async FastAPI Endpoints</li>
-              <li>- MongoDB Lead Storage</li>
-              <li>- Stripe Webhook Handlers</li>
-            </ul>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default WebBuilds;
+export default GameBuilds;
