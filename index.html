@@ -11,7 +11,6 @@
   --black: #010409;
   --neon-cyan: #00f2ff;
   --neon-pink: #ff007a;
-  --neon-purple: #bc13fe;
   --neon-blue: #0070ff;
   --sand: #fde68a;
   --slate: #94a3b8;
@@ -100,7 +99,7 @@ main { margin-left: 280px; flex: 1; padding: 3rem; }
 }
 @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-.btn-buy {
+.btn-action {
   background: var(--neon-cyan); color: var(--black);
   padding: 0.6rem 1.2rem; border-radius: 5px; font-weight: 800;
   text-decoration: none; display: inline-block; margin-top: 1rem;
@@ -114,7 +113,7 @@ main { margin-left: 280px; flex: 1; padding: 3rem; }
     <img src="65ad77bb-8dac-4a4e-8409-e78175401b1f-1_all_4657.png" class="pure-logo" alt="Ocean Tide Drop">
   </div>
 
-  <div class="nav-group">The Seven Villages</div>
+  <div class="nav-group">The Village Store</div>
   <a href="#" class="nav-link active" onclick="showSec('trading')"><i class="fa-solid fa-ship"></i> Diamond Trading Post</a>
   <a href="#" class="nav-link" onclick="showSec('free')"><i class="fa-solid fa-umbrella-beach"></i> The Public Shore</a>
   
@@ -130,42 +129,46 @@ main { margin-left: 280px; flex: 1; padding: 3rem; }
 <main>
   <div id="trading" class="section-container active">
     <h1 style="font-family:'Bebas Neue'; font-size: 4rem;">Diamond Shoals <span style="color:var(--neon-cyan)">Trading Post</span></h1>
-    <p style="color:var(--slate); margin-bottom: 2rem;">Heavy-duty automation tools for the digital Atlantic.</p>
+    <p style="color:var(--slate); margin-bottom: 2rem;">Custom AI solutions and high-speed automation gear.</p>
     <div class="grid">
       <div class="card">
         <h3>The Wave Engine</h3>
-        <p style="font-size:0.85rem;">Custom high-speed API hooks for your store operations.</p>
+        <p style="font-size:0.85rem;">High-performance API hooks for enterprise automation.</p>
         <div style="font-weight:bold; font-size:1.4rem; margin:1rem 0;">$47.00</div>
-        <a href="#" class="btn-buy">Purchase Gear</a>
+        <a href="#" class="btn-action">Purchase Gear</a>
       </div>
       <div class="card">
-        <h3>Storm-Shield Proxy</h3>
-        <p style="font-size:0.85rem;">Secure your digital assets against incoming traffic spikes.</p>
-        <div style="font-weight:bold; font-size:1.4rem; margin:1rem 0;">$29.00</div>
-        <a href="#" class="btn-buy">Purchase Gear</a>
+        <h3>Conversational Bot Build</h3>
+        <p style="font-size:0.85rem;">Custom AI support agent tailored for your business niche.</p>
+        <div style="font-weight:bold; font-size:1.4rem; margin:1rem 0;">$297.00</div>
+        <a href="#" class="btn-action">Reserve Build</a>
       </div>
     </div>
   </div>
 
   <div id="free" class="section-container">
     <h1 style="font-family:'Bebas Neue'; font-size: 3rem;">The <span style="color:var(--sand)">Public Shore</span></h1>
-    <p style="color:var(--slate); margin-bottom: 2rem;">Free resources for the Hatteras community.</p>
+    <p style="color:var(--slate); margin-bottom: 2rem;">Free AI guides and community resources from Hatteras.</p>
     <div class="grid">
       <div class="card" style="border-color: var(--sand);">
-        <h3>Tide Table PDF</h3>
-        <p style="font-size:0.85rem;">A beginner's guide to AI automation basics.</p>
-        <a href="#" style="color:var(--sand); font-size:0.8rem; font-weight:700;">DOWNLOAD FREE</a>
+        <h3>AI Tide Table</h3>
+        <p style="font-size:0.85rem;">A beginner's roadmap to automating your first workflow.</p>
+        <a href="#" style="color:var(--sand); font-size:0.8rem; font-weight:700;">DOWNLOAD NOW</a>
       </div>
     </div>
   </div>
 
   <div id="station" class="section-container">
     <h1 style="font-family:'Bebas Neue'; font-size: 3rem;">Chicamacomico <span style="color:var(--neon-cyan)">Member Station</span></h1>
-    <p style="margin-bottom:2rem;">Status: <span style="color:var(--neon-pink); font-weight:800;">Pink Surfboard Active</span></p>
+    <p style="margin-bottom:2rem;">Your active $17.00/mo subscription gives you the Pink Surfboard edge.</p>
     <div class="card">
-      <h3>Active Subscription</h3>
-      <p>Your <strong>$17.00/mo</strong> access includes all village toolsets and private beta access.</p>
-      <a href="#" class="btn-buy" style="background:var(--neon-pink); color:white;">Manage Subscription</a>
+      <h3>Active Perks</h3>
+      <ul style="list-style:none; margin:1rem 0; font-size:0.9rem; line-height:2;">
+        <li><i class="fa-solid fa-check" style="color:var(--neon-cyan)"></i> Weekly AI "Tide Report" strategy sessions</li>
+        <li><i class="fa-solid fa-check" style="color:var(--neon-cyan)"></i> Exclusive Village Automation templates</li>
+        <li><i class="fa-solid fa-check" style="color:var(--neon-cyan)"></i> Early access to Diamond Shoals gear drops</li>
+      </ul>
+      <a href="#" class="btn-action" style="background:var(--neon-pink); color:white;">Member Dashboard</a>
     </div>
   </div>
 
@@ -173,7 +176,7 @@ main { margin-left: 280px; flex: 1; padding: 3rem; }
     <div style="text-align:center; padding: 4rem; border: 1px solid var(--neon-pink); border-radius:20px; background: rgba(255,0,122,0.05);">
       <img src="65ad77bb-8dac-4a4e-8409-e78175401b1f-1_all_4670.png" style="width:250px; filter: drop-shadow(0 0 15px var(--neon-pink));" alt="Survivor">
       <h1 style="font-family:'Bebas Neue'; font-size:5rem; color:var(--neon-pink); margin-top:1rem;">AI SURFER SURVIVOR</h1>
-      <p>THE REALM IS LIVE. START YOUR FIRST CHALLENGE.</p>
+      <p>THE REALM IS LIVE. MASTER THE CURRENTS OR BE WASHED AWAY.</p>
     </div>
   </div>
 
@@ -181,11 +184,11 @@ main { margin-left: 280px; flex: 1; padding: 3rem; }
     <h1 style="font-family:'Bebas Neue'; font-size: 3rem;">Founders <span style="color:var(--neon-cyan)">Gallery</span></h1>
     <div class="grid">
       <div class="card" style="text-align:center;">
-        <div style="width:120px; height:120px; border-radius:50%; border:3px solid var(--neon-cyan); margin: 0 auto 1rem; overflow:hidden;">
-          <img src="fixed-site/images/founder-floridadoll.jpg" alt="Florida Doll" style="width:100%; height:100%; object-fit:cover;">
+        <div style="width:140px; height:140px; border-radius:50%; border:3px solid var(--neon-cyan); margin: 0 auto 1rem; overflow:hidden; box-shadow: 0 0 15px var(--neon-cyan);">
+          <img src="fixed-site/images/founder-floridadoll.jpg" alt="Founder" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <h2 style="font-family:'Playfair Display';">Florida Doll</h2>
-        <p style="color:var(--neon-cyan); font-weight:700; font-size:0.8rem;">Visionary Architect</p>
+        <p style="color:var(--neon-cyan); font-weight:700; font-size:0.8rem; text-transform:uppercase;">Visionary Architect</p>
       </div>
     </div>
   </div>
