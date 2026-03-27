@@ -1,55 +1,55 @@
 import React from 'react';
-import { Zap, ShieldCheck, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import MemberPass from './MemberPass';
+import Automations from './Automations';
+import Workflows from './Workflows';
+import WebBuilds from './WebBuilds';
+import GameBuilds from './GameBuilds';
 
-const Automations = () => {
-  const services = [
-    { title: "LinkedIn Lead Sniper", desc: "AI-driven profile scraping and personalized outreach that actually gets replies.", price: "$1,200 Setup" },
-    { title: "CRM Ghostwriter", desc: "Automated meeting transcription and CRM entry. Never take notes again.", price: "$2,500 Setup" },
-    { title: "24/7 AI Voice Agent", desc: "Custom-trained voice models to handle inbound calls and book appointments.", price: "$3,000 Setup" },
-    { title: "The 'Clay' Waterfall", desc: "Advanced lead enrichment to find verified emails for any decision-maker.", price: "$1,500 Setup" }
-  ];
-
+function Home() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white p-6 md:p-12 font-sans">
-      <div className="max-w-5xl mx-auto">
-        <Link to="/" className="flex items-center gap-2 text-blue-400 mb-12 hover:text-white transition-colors no-underline font-bold uppercase tracking-widest text-xs">
-          <ArrowLeft size={16} /> Back to Ecosystem
-        </Link>
-
-        <div className="mb-16 text-center md:text-left">
-          <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 uppercase leading-none">
-            AI Automations
-          </h1>
-          <p className="text-slate-400 mt-6 text-lg md:text-xl max-w-2xl font-medium">
-            High-velocity infrastructure designed to buy your time back and scale your output.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((s, i) => (
-            <div key={i} className="bg-slate-900/40 border border-blue-500/10 p-10 rounded-[2.5rem] hover:border-blue-500/40 transition-all group relative">
-              <Zap className="text-blue-400 mb-4 opacity-50 group-hover:opacity-100 transition-opacity" size={32} />
-              <h3 className="text-2xl font-black mb-4 uppercase italic tracking-tight">{s.title}</h3>
-              <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">{s.desc}</p>
-              <div className="flex items-center justify-between border-t border-slate-800/50 pt-6">
-                <span className="text-green-400 font-black text-xl italic tracking-tighter">{s.price}</span>
-                <span className="flex items-center gap-1 text-[10px] text-blue-400 uppercase tracking-[0.2em] font-black">
-                  <ShieldCheck size={12}/> High ROI
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-20 p-10 bg-blue-600/5 border border-blue-500/20 rounded-[3rem] text-center">
-          <p className="text-slate-300 italic text-lg max-w-3xl mx-auto">
-            "We don't just build bots; we build digital employees that never sleep."
-          </p>
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 font-sans text-white text-center">
+      <div className="max-w-6xl w-full bg-slate-900/30 border border-blue-500/10 p-12 rounded-[3rem] backdrop-blur-xl shadow-2xl">
+        <h1 className="text-6xl md:text-9xl font-black italic tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-400 to-cyan-500">
+          OTD AI SURFER
+        </h1>
+        <p className="text-blue-400/80 font-bold tracking-[0.4em] uppercase mb-16 text-[10px] md:text-xs text-center">Digital Ecosystem Architect</p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <Link to="/automations" className="group bg-slate-800/40 hover:bg-blue-600 p-8 rounded-3xl transition-all no-underline text-white border border-blue-500/20 shadow-lg hover:shadow-blue-500/20">
+            <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase">AI Automations</h2>
+          </Link>
+          <Link to="/workflows" className="group bg-slate-800/40 hover:bg-cyan-600 p-8 rounded-3xl transition-all no-underline text-white border border-cyan-500/20 shadow-lg hover:shadow-cyan-500/20">
+            <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase">Strategic Workflows</h2>
+          </Link>
+          <Link to="/web-builds" className="group bg-slate-800/40 hover:bg-purple-600 p-8 rounded-3xl transition-all no-underline text-white border border-purple-500/20 shadow-lg hover:shadow-purple-500/20">
+            <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase">High-Velocity Web</h2>
+          </Link>
+          <Link to="/game-builds" className="group bg-slate-800/40 hover:bg-orange-600 p-8 rounded-3xl transition-all no-underline text-white border border-orange-500/20 shadow-lg hover:shadow-orange-500/20">
+            <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase">Game & Sim Builds</h2>
+          </Link>
+          <Link to="/vault" className="group bg-slate-800/40 hover:bg-emerald-600 p-8 rounded-3xl transition-all no-underline text-white border border-emerald-500/20 lg:col-span-2 shadow-lg hover:shadow-emerald-500/20">
+            <h2 className="font-black italic text-xl md:text-2xl group-hover:scale-105 transition-transform uppercase">Member Vault Access</h2>
+          </Link>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default Automations;
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/automations" element={<Automations />} />
+        <Route path="/workflows" element={<Workflows />} />
+        <Route path="/web-builds" element={<WebBuilds />} />
+        <Route path="/game-builds" element={<GameBuilds />} />
+        <Route path="/vault" element={<MemberPass />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
