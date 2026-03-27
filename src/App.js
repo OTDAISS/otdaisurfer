@@ -5,7 +5,7 @@ import Automations from './Automations';
 import Workflows from './Workflows';
 import WebBuilds from './WebBuilds';
 import GameBuilds from './GameBuilds';
-import LeadSniper from './LeadSniper'; // Matches LeadSniper.js exactly
+import LeadSniper from './LeadSniper';
 
 function Home() {
   return (
