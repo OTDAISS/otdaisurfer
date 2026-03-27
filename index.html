@@ -12,169 +12,153 @@
   --neon-cyan: #00f2ff;
   --neon-pink: #ff007a;
   --neon-blue: #0070ff;
-  --sand: #fde68a;
-  --slate: #94a3b8;
   --border: rgba(0, 242, 255, 0.2);
-  --glass: rgba(255, 255, 255, 0.03);
 }
 
-/* ── SPARKLE & BACKGROUND ── */
-@keyframes move-stars {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
+/* ── ANIMATION 2: THE SPARKLE STARFIELD ── */
+@keyframes sparkle {
+  0% { transform: translateY(0px); opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-1000px); opacity: 0.3; }
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: var(--black);
-  /* Sparkle Effect using layered radial gradients */
-  background-image: 
-    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 50px 160px, var(--neon-cyan), rgba(0,0,0,0)),
-    linear-gradient(-45deg, #010409, #05192d, #0d011a, #010a0f);
-  background-size: 200px 200px, 300px 300px, 150px 150px, 400% 400%;
-  animation: move-stars 200s linear infinite;
   color: #e2e8f0;
   min-height: 100vh;
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden; /* Keep the stars contained */
+}
+
+/* Sparkle Layer */
+#sparkle-container {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at bottom, #05192d 0%, #010409 100%);
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: sparkle linear infinite;
 }
 
 /* ── SIDEBAR ── */
 aside {
   width: 280px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
   border-right: 1px solid var(--border);
-  position: fixed;
+  position: relative;
   height: 100vh;
   z-index: 100;
   box-shadow: 10px 0 30px rgba(0, 242, 255, 0.1);
 }
 
-.logo-box { padding: 2rem; text-align: center; }
-.pure-logo { width: 100%; filter: drop-shadow(0 0 8px var(--neon-cyan)); transition: 0.3s; }
-.pure-logo:hover { filter: drop-shadow(0 0 15px var(--neon-cyan)); }
+.logo-box { padding: 2.5rem 1.5rem; text-align: center; }
+.main-logo { 
+  width: 100%; 
+  filter: drop-shadow(0 0 10px var(--neon-cyan)); 
+}
 
-.nav-group { padding: 1.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--neon-cyan); letter-spacing: 0.2em; }
+.nav-group { padding: 1.5rem 1.5rem 0.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--neon-cyan); letter-spacing: 0.2em; }
 .nav-link { 
-  display: flex; align-items: center; gap: 12px; padding: 0.8rem 1.5rem; 
-  color: var(--slate); text-decoration: none; transition: 0.3s;
+  display: flex; align-items: center; gap: 12px; padding: 0.9rem 1.5rem; 
+  color: #94a3b8; text-decoration: none; transition: 0.3s;
 }
-.nav-link:hover, .nav-link.active { color: #fff; background: rgba(0, 242, 255, 0.05); border-left: 4px solid var(--neon-cyan); }
+.nav-link:hover, .nav-link.active { 
+  color: #fff; background: rgba(0, 242, 255, 0.05); 
+  border-left: 4px solid var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
 
-/* ── MAIN ── */
-main { margin-left: 280px; flex: 1; padding: 3rem; }
+/* ── MAIN CONTENT ── */
+main { position: relative; z-index: 10; flex: 1; padding: 4rem; overflow-y: auto; }
 .section-container { display: none; }
-.section-container.active { display: block; animation: fadeInUp 0.5s ease; }
+.section-container.active { display: block; animation: fadeIn 0.8s ease; }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* ── NEON STRIPE CARDS ── */
 .card {
-  background: var(--glass);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 2.5rem;
-  transition: 0.4s;
-  position: relative;
-  overflow: hidden;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
 }
-.card:hover { border-color: var(--neon-cyan); box-shadow: 0 0 30px rgba(0, 242, 255, 0.2); }
 
 .btn-stripe {
   background: var(--neon-cyan);
   color: #000;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.5rem;
   border-radius: 50px;
   font-weight: 800;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 1.5rem;
-  box-shadow: 0 0 15px var(--neon-cyan);
-  transition: 0.3s;
   border: none;
   cursor: pointer;
+  box-shadow: 0 0 20px var(--neon-cyan);
+  transition: 0.3s;
 }
-.btn-stripe:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--neon-cyan); }
-
-/* ── MEMORIAL ── */
-.memorial-glow {
-  border: 1px solid var(--neon-blue);
-  padding: 4rem;
-  text-align: center;
-  background: rgba(0, 112, 255, 0.05);
-  border-radius: 30px;
-}
+.btn-stripe:hover { transform: scale(1.05); box-shadow: 0 0 35px var(--neon-cyan); }
 </style>
 </head>
 <body>
 
+<div id="sparkle-container"></div>
+
 <aside>
   <div class="logo-box">
-    <img src="65ad77bb-8dac-4a4e-8409-e78175401b1f-1_all_4657.png" class="pure-logo" alt="OTD Main Logo">
+    <img src="65ad77bb-8dac-4a4e-8409-e78175401b1f-1_all_4657.png" class="main-logo" alt="Logo">
   </div>
-
-  <div class="nav-group">Hatteras Store</div>
-  <a href="#" class="nav-link active" onclick="showSec('store')"><i class="fa-solid fa-ship"></i> Trading Post</a>
-  <a href="#" class="nav-link" onclick="showSec('free')"><i class="fa-solid fa-gift"></i> Free Shore</a>
-  
-  <div class="nav-group">Members</div>
+  <div class="nav-group">Hatteras Hub</div>
+  <a href="#" class="nav-link active" onclick="showSec('trading')"><i class="fa-solid fa-ship"></i> Trading Post</a>
   <a href="#" class="nav-link" onclick="showSec('members')"><i class="fa-solid fa-id-card"></i> Chicamacomico</a>
-  <a href="#" class="nav-link" style="color:var(--neon-pink)" onclick="showSec('survivor')"><i class="fa-solid fa-skull"></i> Survivor Realm</a>
-
-  <div class="nav-group">Legacy</div>
-  <a href="#" class="nav-link" onclick="showSec('founders')"><i class="fa-solid fa-crown"></i> Founders</a>
+  <a href="#" class="nav-link" onclick="showSec('free')"><i class="fa-solid fa-gift"></i> Free Shore</a>
   <a href="#" class="nav-link" onclick="showSec('memorial')"><i class="fa-solid fa-anchor"></i> Salvo Memorial</a>
 </aside>
 
 <main>
-  <div id="store" class="section-container active">
-    <h1 style="font-family:'Bebas Neue'; font-size:4rem;">Diamond Shoals <span style="color:var(--neon-cyan)">Trading Post</span></h1>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-      <div class="card">
-        <h3>Member Access</h3>
-        <p style="color:var(--slate); margin: 1rem 0;">Get the Pink Surfboard edge with full AI tools.</p>
-        <div style="font-size: 2rem; font-weight: 800;">$17.00<span style="font-size: 0.8rem; color:var(--neon-cyan)">/mo</span></div>
-        <button class="btn-stripe" onclick="handleCheckout('price_your_id_here')">Secure Access ⚡</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="survivor" class="section-container">
-    <div style="text-align:center; padding: 3rem; border: 1px solid var(--neon-pink); border-radius: 30px; background: rgba(255,0,122,0.05);">
-      <img src="65ad77bb-8dac-4a4e-8409-e78175401b1f-1_all_4670.png" style="width:250px; filter: drop-shadow(0 0 15px var(--neon-pink));" alt="Survivor">
-      <h1 style="font-family:'Bebas Neue'; font-size:4rem; color:var(--neon-pink); margin-top: 1rem;">AI SURFER SURVIVOR</h1>
-      <p>Can you survive the automated tides?</p>
+  <div id="trading" class="section-container active">
+    <h1 style="font-family:'Bebas Neue'; font-size: 5rem; letter-spacing: 5px;">DIAMOND <span style="color:var(--neon-cyan)">SHOALS</span></h1>
+    <div class="card" style="margin-top: 2rem; max-width: 500px;">
+      <h2 style="color:var(--neon-cyan); margin-bottom: 1rem;">$17.00 Monthly Subscription</h2>
+      <p style="margin-bottom: 2rem; color: #94a3b8;">Unlock the full AI Surfer Survivor realm and all Hatteras village toolsets.</p>
+      <button class="btn-stripe" onclick="handleStripe()">Secure Membership ⚡</button>
     </div>
   </div>
 
   <div id="memorial" class="section-container">
-    <div class="memorial-glow">
-      <h1 style="font-family:'Playfair Display'; font-style: italic; font-size: 3rem;">Salvo Memorial for Bull Hopper</h1>
-      <div style="width:100px; height:1px; background:var(--neon-blue); margin: 2rem auto; box-shadow: 0 0 15px var(--neon-blue);"></div>
-      <p style="font-size: 1.2rem; line-height: 1.8;">"Strength as constant as the Hatteras tide."</p>
-      <p style="color:var(--neon-blue); font-weight: 800; margin-top: 2rem;">FAIR WINDS & FOLLOWING SEAS</p>
-    </div>
-  </div>
-  
-  <div id="founders" class="section-container">
-    <div class="card" style="text-align: center; width: 300px; margin: 0 auto;">
-       <div style="width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--neon-cyan); margin: 0 auto 1rem; overflow: hidden;">
-         <img src="fixed-site/images/founder-floridadoll.jpg" alt="Florida Doll" style="width:100%; height:100%; object-fit:cover;">
-       </div>
-       <h2 style="font-family:'Playfair Display';">Florida Doll</h2>
-       <p style="color:var(--neon-cyan); font-weight:700; font-size:0.8rem;">Visionary Architect</p>
+    <div class="card" style="text-align: center; border-color: var(--neon-blue);">
+      <h1 style="font-family:'Playfair Display'; font-style: italic; font-size: 4rem;">Salvo Memorial</h1>
+      <h2 style="color: var(--neon-blue); letter-spacing: 2px;">BULL HOPPER</h2>
+      <div style="height: 100px; width: 1px; background: var(--neon-blue); margin: 2rem auto; box-shadow: 0 0 15px var(--neon-blue);"></div>
+      <p style="font-size: 1.5rem;">"Fair Winds & Following Seas"</p>
     </div>
   </div>
 </main>
 
 <script>
-// Section Switcher
+// Generate Sparkle Stars
+const container = document.getElementById('sparkle-container');
+for (let i = 0; i < 150; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  const size = Math.random() * 3 + 'px';
+  star.style.width = size;
+  star.style.height = size;
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDuration = (Math.random() * 50 + 10) + 's';
+  star.style.animationDelay = (Math.random() * 10) + 's';
+  container.appendChild(star);
+}
+
 function showSec(id) {
   document.querySelectorAll('.section-container').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -182,12 +166,8 @@ function showSec(id) {
   event.currentTarget.classList.add('active');
 }
 
-// Stripe Checkout Logic
-async function handleCheckout(priceId) {
-  console.log("Redirecting to Vercel/Stripe for:", priceId);
-  // This should call your Vercel serverless function (e.g., /api/checkout)
-  // window.location.href = `/api/checkout?priceId=${priceId}`;
-  alert("Stripe Link Triggered! (Ensure your Vercel API endpoint is live with your Secret Key)");
+function handleStripe() {
+  alert("Initiating Stripe Checkout... (Ensure your Vercel keys are set to 'price_id_here')");
 }
 </script>
 
