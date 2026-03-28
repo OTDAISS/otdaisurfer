@@ -3,5 +3,8 @@ import react from '@vitejs/react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/otd-site/', // <--- THIS LINE IS CRITICAL
+  base: '/', 
+  build: {
+    outDir: 'dist',
+  }
 })
