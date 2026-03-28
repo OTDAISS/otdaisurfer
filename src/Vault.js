@@ -4,7 +4,7 @@
     "title": "The Vault",
     "access_label": "// ACCESS LEVEL: FOUNDER // CLASSIFIED",
     "status_icon": "Shield"
-  },
+  },<Route path='/insights' element={<MarketInsights />} />. 
   "navigation_tools": [
     {
       "name": "Lead Sniper",
