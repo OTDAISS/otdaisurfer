@@ -1,7 +1,93 @@
-new Live(
-apiClient: ApiClient,
-auth: Auth,
-webSocketFactory: WebSocketFactory,
-): Live
-Modality.AUDIO
-window.location.href
+import { Live, Modality } from '@google/generative-ai'; // Or your specific AI SDK
+
+const NeuralLink = () => {
+  const [connectionStatus, setConnectionStatus] = useState('OFFLINE');
+  const [isConnecting, setIsConnecting] = useState(false);
+
+  const establishLink = async () => {
+    setIsConnecting(true);
+    setConnectionStatus('INITIALIZING_WEBSOCKET...');
+
+    try {
+      // 1. Setup the Hardware/Auth Layer
+      const apiClient = new ApiClient({ apiKey: process.env.REACT_APP_AI_KEY });
+      const auth = new Auth(apiClient);
+      
+      // 2. Initialize the Live Instance
+      const liveSession = new Live(
+        apiClient,
+        auth,
+        new WebSocketFactory() // Standard Browser WebSocket
+      );
+
+      // 3. Configure for Real-time Audio
+      await liveSession.start({
+        modality: Modality.AUDIO,
+        instructions: "You are the OTD System Architect. Use a calm, high-authority tone. Help the user optimize their AI infrastructure."
+      });
+
+      setConnectionStatus('ENCRYPTED_VOICE_LINK_ACTIVE');
+    } catch (error) {
+      setConnectionStatus('CONNECTION_ERROR');
+      console.error("Neural Link Failed:", error);
+    } finally {
+      setIsConnecting(false);
+    }
+  };
+
+  const terminateSession = () => {
+    // 4. Secure Redirection (Break out of React context)
+    // After the talk, we send them to the post-session summary
+    window.location.href = '/vault/session-summary';
+  };
+
+  return (
+    <div className="p-10 max-w-xl mx-auto text-center">
+      <div className="bg-slate-900 border border-emerald-500/20 p-12 rounded-[4rem] shadow-[0_0_100px_rgba(16,185,129,0.1)]">
+        
+        {/* The "Brain" Visual */}
+        <div className={`w-32 h-32 mx-auto rounded-full flex items-center justify-center transition-all duration-1000 mb-8 ${
+          connectionStatus.includes('ACTIVE') 
+          ? 'bg-emerald-500 shadow-[0_0_60px_rgba(16,185,129,0.5)] scale-110' 
+          : 'bg-slate-800'
+        }`}>
+          <Mic size={48} className={connectionStatus.includes('ACTIVE') ? 'text-black animate-pulse' : 'text-slate-600'} />
+        </div>
+
+        <h2 className="text-2xl font-black uppercase italic text-white mb-2">
+          {connectionStatus.includes('ACTIVE') ? "Architect Online" : "Neural Voice Link"}
+        </h2>
+        
+        <p className="font-mono text-[10px] text-emerald-500 uppercase tracking-[0.3em] mb-10">
+          {connectionStatus}
+        </p>
+
+        {!connectionStatus.includes('ACTIVE') ? (
+          <button 
+            onClick={establishLink}
+            disabled={isConnecting}
+            className="w-full bg-emerald-600 hover:bg-emerald-400 text-black py-5 rounded-2xl font-black uppercase tracking-widest transition-all"
+          >
+            {isConnecting ? "Syncing..." : "Establish Connection"}
+          </button>
+        ) : (
+          <button 
+            onClick={terminateSession}
+            className="w-full bg-red-600 hover:bg-red-500 text-white py-5 rounded-2xl font-black uppercase tracking-widest transition-all"
+          >
+            Terminate & Save Logs
+          </button>
+        )}
+
+        <div className="mt-8 flex justify-center gap-6 opacity-30">
+          <div className="flex items-center gap-2 text-[8px] font-mono uppercase text-white">
+            <ShieldCheck size={12} /> SSL_256
+          </div>
+          <div className="flex items-center gap-2 text-[8px] font-mono uppercase text-white">
+            <Zap size={12} /> LATENCY_LOW
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
