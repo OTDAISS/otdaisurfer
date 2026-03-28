@@ -1,3 +1,8 @@
+{
+    "filename": "App.js",
+    "description": "Integrating the GlobalHeader so the logo appears on all pages.",
+    "code": "import React from 'react';\nimport { BrowserRouter as Router, Routes, Route } from 'react-router-dom';\nimport GlobalHeader from './GlobalHeader';\nimport SystemDock from './SystemDock';\nimport Home from './Home';\n// ... other imports\n\nexport default function App() {\n  return (\n    <Router>\n      <div className=\"relative min-h-screen bg-black\">\n        {/* LOGO APPEARS HERE GLOBALLY */}\n        <GlobalHeader />\n        \n        <SystemDock />\n\n        <Routes>\n          <Route path=\"/\" element={<Home />} />\n          {/* ... other routes */}\n        </Routes>\n      </div>\n    </Router>\n  );\n}"
+  }
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
