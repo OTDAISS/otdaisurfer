@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 
-// Global UI components
 import SystemDock from "./components/SystemDock.jsx";
 import GlobalHeader from "./components/GlobalHeader.js";
 
@@ -12,12 +11,15 @@ export default function App({ children }) {
       {/* Global Header */}
       {GlobalHeader && <GlobalHeader />}
 
-      {/* Main Content Area */}
-      <main className="pt-20 pb-24 px-4">
+      {/* Animated Page Container */}
+      <main
+        className="pt-20 pb-24 px-4 fade-in"
+        style={{ animation: "fadeIn 0.6s ease-out" }}
+      >
         {children}
       </main>
 
-      {/* System Dock (bottom navigation) */}
+      {/* System Dock */}
       {SystemDock && <SystemDock />}
     </div>
   );
