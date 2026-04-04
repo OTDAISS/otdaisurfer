@@ -1,20 +1,24 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import "./App.css";
+
+// Global UI Components
 import GlobalHeader from "./components/GlobalHeader.js";
 import SystemDock from "./components/SystemDock.js";
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="app-shell">
       {/* Global Header */}
       <GlobalHeader />
 
       {/* Main Content Area */}
-      <main className="app-main">
-        {/* This is where all routed pages will appear */}
-      </main>
+      <div className="app-content">
+        {/* Routed pages appear here */}
+        <Outlet />
+      </div>
 
-      {/* System Dock */}
+      {/* Global Dock */}
       <SystemDock />
     </div>
   );
