@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 // Global UI Components
-import GlobalHeader from "./components/GlobalHeader.js";
+import GlobalHeader from "./components/GlobalHeader.jsx";
 import SystemDock from "./components/SystemDock.js";
 
 // Router
