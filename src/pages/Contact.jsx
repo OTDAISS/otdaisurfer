@@ -26,7 +26,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Replace with your form endpoint (Formspree, EmailJS, etc.)
     setSubmitted(true);
   };
 
@@ -39,8 +38,7 @@ export default function Contact() {
           </div>
           <h2 className="text-3xl font-bold text-white mb-4">You're in the tide.</h2>
           <p className="text-gray-400 text-lg">
-            We'll be in touch within 24 hours to confirm your call and get
-            started.
+            We'll be in touch within 24 hours to confirm your call and get started.
           </p>
         </div>
       </div>
@@ -65,12 +63,13 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Calendly placeholder — swap with your real link */}
+        {/* Calendly */}
         <div className="mb-10 p-6 rounded-2xl border border-teal-900/40 bg-gray-900/30 text-center">
           <p className="text-teal-400 font-mono text-xs uppercase tracking-widest mb-3">
             Book directly
           </p>
-          
+
+          <a
             href="https://calendly.com/oceantidedrop"
             target="_blank"
             rel="noreferrer"
@@ -78,7 +77,10 @@ export default function Contact() {
           >
             Schedule on Calendly
           </a>
-          <p className="text-gray-600 text-xs mt-3">Or fill out the form below and we'll reach out to schedule.</p>
+
+          <p className="text-gray-600 text-xs mt-3">
+            Or fill out the form below and we'll reach out to schedule.
+          </p>
         </div>
 
         {/* Form */}
@@ -98,6 +100,7 @@ export default function Contact() {
                 className="bg-gray-900/50 border border-teal-900/50 rounded-xl px-5 py-3 text-white placeholder-gray-600 outline-none focus:border-teal-500/60 transition-all"
               />
             </div>
+
             <div className="flex flex-col gap-2">
               <label className="text-teal-500 font-mono text-xs uppercase tracking-widest">
                 Email
