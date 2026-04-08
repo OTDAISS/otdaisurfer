@@ -1,22 +1,28 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import SystemDock from "./system/SystemDock";
 import MembershipGate from "./components/MembershipGate";
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen w-full text-white bg-gradient-to-b from-[#00111a] to-[#002b3d] relative overflow-x-hidden">
-
-      {/* Membership Wall (gates protected areas) */}
+    <>
       <MembershipGate />
 
-      {/* Page Content */}
-      <main className="pt-20 pb-24 px-4 max-w-7xl mx-auto">
-        <Outlet />
-      </main>
+      <main className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-teal-900 text-teal-200 flex flex-col items-center justify-center px-6">
+        <h1 className="text-5xl font-bold mb-6 drop-shadow-[0_0_25px_rgba(45,212,191,0.8)] text-center">
+          Ocean Tide Drop
+        </h1>
 
-      {/* Global System Dock */}
-      <SystemDock />
-    </div>
+        <p className="text-lg text-gray-300 max-w-xl text-center mb-8">
+          Pick your tools as you do.  
+          Navigate the tides.  
+          Build your realm.
+        </p>
+
+        <button className="px-6 py-3 rounded-lg bg-teal-600 hover:bg-teal-500 transition-all text-black font-semibold shadow-[0_0_12px_rgba(45,212,191,0.8)]">
+          Begin Your Journey
+        </button>
+      </main>
+    </>
   );
 }
+
+export default App;
