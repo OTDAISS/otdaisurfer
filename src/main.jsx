@@ -13,7 +13,6 @@ import MemberPortal from "./MemberPortal";
 import MemberServices from "./MemberServices";
 import MemberPass from "./MemberPass";
 
-
 // Global Styles
 import "./index.css";
 
@@ -28,7 +27,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="services" element={<Services />} />
           <Route path="realm" element={<Realm />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="membership" element={<Membership />} />
+          <Route path="memberportal" element={<MemberPortal />} />
+          <Route
+            path="memberservices"
+            element={
+              <MemberPass>
+                <MemberServices />
+              </MemberPass>
+            }
+          />
         </Route>
 
       </Routes>
