@@ -6,7 +6,6 @@ export default function App() {
   return (
     <div className="min-h-screen w-full text-white bg-black relative overflow-x-hidden">
 
-      {/* Global Header with Logo */}
       <header className="w-full flex items-center justify-between px-6 py-4 bg-black/40 backdrop-blur-md border-b border-teal-500/20 fixed top-0 left-0 z-50">
         <Link to="/" className="flex items-center gap-3">
           <img
@@ -20,7 +19,6 @@ export default function App() {
         </Link>
       </header>
 
-      {/* Page Content Wrapper */}
       <main className="pt-24 px-4 pb-10 max-w-7xl mx-auto">
         <Outlet />
       </main>
