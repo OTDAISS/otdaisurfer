@@ -1,0 +1,90 @@
+.memberportal-container {
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #0a1a2f, #020611 70%);
+  overflow: hidden;
+}
+
+/* --- DASHBOARD GRID --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 20px;
+  padding: 40px;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: white;
+}
+
+.tile:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.tile-hero {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.tile-medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.tile-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* --- WORKSPACE --- */
+.workspace {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  width: 260px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(0, 255, 255, 0.25);
+  padding: 20px;
+  color: white;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 12px 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: rgba(0, 255, 255, 0.15);
+}
+
+.sidebar-link.active {
+  background: rgba(0, 255, 255, 0.35);
+  font-weight: bold;
+}
+
+.workspace-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  color: white;
+}
