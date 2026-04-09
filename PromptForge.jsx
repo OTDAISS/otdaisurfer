@@ -1,62 +1,84 @@
-import React, { useState } from 'react';
-import { Wand2, Copy, CheckCircle, Terminal } from 'lucide-react';
+import React, { useState } from "react";
 
-const PromptForge = () => {
-  const [role, setRole] = useState('Marketing Expert');
-  const [goal, setGoal] = useState('Write an email sequence');
-  const [copied, setCopied] = useState(false);
+export default function PromptForge() {
+  const [input, setInput] = useState("");
+  const [history, setHistory] = useState([]);
 
-  const generatedPrompt = `ACT AS A [${role.toUpperCase()}]. YOUR CORE OBJECTIVE IS TO [${goal.toUpperCase()}]. \n\nCONSTRAINTS: \n- USE PSYCHOLOGICAL TRIGGERS (URGENCY, SOCIAL PROOF).\n- MAINTAIN A HIGH-AUTHORITY, PROFESSIONAL TONE.\n- OUTPUT IN MARKDOWN FORMAT.`;
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(generatedPrompt);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const forgePrompt = () => {
+    if (!input.trim()) return;
+    const newEntry = {
+      text: input,
+      timestamp: new Date().toLocaleTimeString(),
+    };
+    setHistory([newEntry, ...history]);
+    setInput("");
   };
 
   return (
-    <div className="bg-slate-900 border border-emerald-500/20 p-8 rounded-[2.5rem] shadow-2xl">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400"><Wand2 size={24} /></div>
-        <h2 className="text-2xl font-black uppercase italic">Prompt Forge <span className="text-emerald-500 font-mono text-[10px] tracking-[0.3em] ml-4">// V2.1</span></h2>
+    <div className="min-h-screen w-full px-6 py-16 bg-gradient-to-b from-black via-[#020617] to-[#00111f] text-white">
+      {/* Header */}
+      <div className="max-w-4xl mx-auto text-center mb-16">
+        <h1 className="text-5xl font-extrabold tracking-tight drop-shadow-[0_0_25px_rgba(0,200,255,0.6)]">
+          Prompt Forge
+        </h1>
+        <p className="mt-4 text-lg text-white/70">
+          Shape language like molten metal. Craft prompts that bend reality inside the realm.
+        </p>
       </div>
 
-      <div className="space-y-6">
-        <div>
-          <label className="text-[10px] font-mono uppercase text-slate-500 tracking-widest block mb-2">Define AI Persona</label>
-          <input 
-            type="text" 
-            value={role} 
-            onChange={(e) => setRole(e.target.value)} 
-            className="w-full bg-slate-950 border border-slate-800 p-4 rounded-xl text-emerald-400 font-mono text-sm focus:border-emerald-500 outline-none"
-          />
-        </div>
-        <div>
-          <label className="text-[10px] font-mono uppercase text-slate-500 tracking-widest block mb-2">Define Objective</label>
-          <textarea 
-            value={goal} 
-            onChange={(e) => setGoal(e.target.value)} 
-            className="w-full bg-slate-950 border border-slate-800 p-4 rounded-xl text-emerald-400 font-mono text-sm focus:border-emerald-500 outline-none h-24"
-          />
-        </div>
-        <div className="bg-black/50 p-6 rounded-2xl border border-slate-800 relative">
-          <div className="text-[10px] font-mono text-slate-600 absolute top-4 left-4 flex items-center gap-2">
-            <Terminal size={12} /> ENGINE_OUTPUT.txt
-          </div>
-          <p className="text-slate-300 font-mono text-[11px] mt-6 leading-relaxed whitespace-pre-wrap">
-            {generatedPrompt}
-          </p>
-          <button 
-            onClick={handleCopy}
-            className="absolute top-4 right-4 text-emerald-500 hover:text-white transition-colors flex items-center gap-2 text-[10px] font-black uppercase"
-          >
-            {copied ? <CheckCircle size={14} /> : <Copy size={14} />}
-            {copied ? "Copied" : "Copy Script"}
-          </button>
+      {/* Forge Container */}
+      <div className="max-w-3xl mx-auto backdrop-blur-xl bg-white/5 border border-cyan-400/20 rounded-2xl p-8 shadow-[0_0_35px_rgba(0,200,255,0.25)]">
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Describe the spell you want to cast…"
+          className="
+            w-full h-40 p-4 rounded-xl bg-black/40 border border-white/10 
+            focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-500/40 
+            outline-none transition-all duration-300
+          "
+        />
+
+        <button
+          onClick={forgePrompt}
+          className="
+            mt-6 w-full py-3 rounded-xl font-semibold 
+            bg-gradient-to-r from-cyan-500 to-blue-600 
+            hover:from-cyan-400 hover:to-blue-500
+            shadow-[0_0_20px_rgba(0,200,255,0.5)]
+            hover:shadow-[0_0_35px_rgba(0,200,255,0.8)]
+            transition-all duration-300
+          "
+        >
+          Forge Prompt
+        </button>
+      </div>
+
+      {/* History */}
+      <div className="max-w-3xl mx-auto mt-16">
+        <h2 className="text-3xl font-bold mb-6 drop-shadow-[0_0_15px_rgba(0,200,255,0.4)]">
+          Forged Artifacts
+        </h2>
+
+        <div className="space-y-6">
+          {history.length === 0 && (
+            <p className="text-white/50">No prompts forged yet. The anvil waits.</p>
+          )}
+
+          {history.map((entry, index) => (
+            <div
+              key={index}
+              className="
+                p-6 rounded-xl bg-white/5 border border-white/10 
+                shadow-[0_0_20px_rgba(0,200,255,0.15)]
+              "
+            >
+              <div className="text-white/80 mb-2 text-sm">{entry.timestamp}</div>
+              <div className="text-lg">{entry.text}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
-};
-
-export default PromptForge;
+}
